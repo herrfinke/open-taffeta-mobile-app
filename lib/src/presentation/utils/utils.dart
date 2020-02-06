@@ -1,5 +1,5 @@
 String getInitials(String nameString) {
-  if (nameString.isEmpty) return ' ';
+  if (nameString == null || nameString.isEmpty) return ' ';
 
   final List<String> nameArray =
       nameString.replaceAll(RegExp(r'\s+\b|\b\s'), ' ').split(' ');
