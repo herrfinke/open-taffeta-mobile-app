@@ -40,6 +40,9 @@ class _BuzzerPageState extends State<BuzzerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationBloc authBloc =
+    BlocProvider.of<AuthenticationBloc>(context);
+
     return BlocListener<DoorEvent, DoorState>(
       bloc: buzzerBloc,
       listener: (BuildContext context, DoorState state) {
@@ -58,6 +61,9 @@ class _BuzzerPageState extends State<BuzzerPage> {
               backgroundColor: AppStyles.errorColor,
             ),
           );
+          if(state?.error?.statusCode == 401) {
+             authBloc.dispatch(LoggedOut());
+          }
         }
       },
       child: BlocBuilder(
