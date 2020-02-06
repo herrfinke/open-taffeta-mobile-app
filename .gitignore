@@ -343,3 +343,4 @@ $RECYCLE.BIN/
 .idea/
 config.json
 android/key.properties
+/.flutter-plugins-dependencies

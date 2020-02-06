@@ -46,7 +46,7 @@ dependencies:
   flutter_secure_storage: ^3.2.1
 
   # Translation packages
-  intl: ^0.15.7
+  intl: ^0.16.0
   intl_translation: ^0.17.0
 
   # Icon packages
