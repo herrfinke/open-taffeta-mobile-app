@@ -88,6 +88,16 @@ class _RegisterWidget extends State<RegisterWidget> {
                     padding: AppStyles.formDefaultInputPadding,
                     child: TextFormField(
                       controller: signupEmailController,
+                      validator: (String value) {
+                        if(value.length <= 4) {
+                          return BuzzerLocalizations.of(context).formEmailHint;
+                        } else if(value.contains('@')) {
+                          return null;
+                        } else {
+                          return BuzzerLocalizations.of(context).formNotEmailExplain;
+                        }
+                      },
+                      autovalidate: true,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: BuzzerLocalizations.of(context).formEmailHint,
@@ -111,6 +121,18 @@ class _RegisterWidget extends State<RegisterWidget> {
                         labelText:
                             BuzzerLocalizations.of(context).formPasswordLabel,
                       ),
+                      validator: (String value) {
+                        if(value.length == 0) {
+                          return BuzzerLocalizations.of(context).formPasswordLabel;
+                        } else if(value.length < 6) {
+                          return BuzzerLocalizations.of(context).formPasswordTooShort;
+                        } else if(signupConfirmPasswordController.text.length > 0 && value != signupConfirmPasswordController.text) {
+                          return BuzzerLocalizations.of(context).formPasswordNoMatch;
+                        } else {
+                          return null;
+                        }
+                      },
+                      autovalidate: true,
                     ),
                   ),
                   Padding(
@@ -128,6 +150,16 @@ class _RegisterWidget extends State<RegisterWidget> {
                         labelText:
                             BuzzerLocalizations.of(context).formPassword2Label,
                       ),
+                      validator: (String value) {
+                        if(value.length == 0) {
+                          return BuzzerLocalizations.of(context).formPassword2Label;
+                        } else if(value != signupPasswordController.text) {
+                          return BuzzerLocalizations.of(context).formPasswordLabel;
+                        } else {
+                          return null;
+                        }
+                      },
+                                  autovalidate: true,
                     ),
                   ),
                   RaisedButton(

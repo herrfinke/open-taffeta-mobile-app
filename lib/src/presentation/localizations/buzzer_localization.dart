@@ -113,6 +113,10 @@ abstract class BuzzerLocalizations {
 
   String get formPasswordLabel;
 
+  String get formPasswordNoMatch;
+
+  String get formPasswordTooShort;
+
   String get formNoPasswordExplain;
 
   String get formPassword2Label;

@@ -158,6 +158,12 @@ class BuzzerLocalizationsDE implements BuzzerLocalizations {
   String get formNoPasswordExplain => 'Bitte gib ein Passwort an.';
 
   @override
+  String get formPasswordNoMatch => 'Passwörter stimmen  nicht überein.';
+
+  @override
+  String get formPasswordTooShort => 'Passwort zu kurz.';
+
+  @override
   String get formPassword2Label => 'Passwort';
 
   @override
